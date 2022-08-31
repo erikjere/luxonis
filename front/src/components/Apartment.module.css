@@ -1,0 +1,25 @@
+.container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  width: 240px;
+  height: 240px;
+}
+
+.image {
+  width: 200px;
+  height: 150px;
+  border-radius: 4px;
+}
+
+.name {
+  color: black;
+  margin-bottom: 0;
+}
+
+.container:hover {
+  background-color: #ede0d2;
+}

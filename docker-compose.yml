@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  #Nginx frontend for static ReactJS and proxy to backend: /api/
+  front:
+    build: ./front
+    networks:
+      - backend
+    ports:
+      - 8080:80
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgrespw
+    networks:
+      - backend
+
+  back:
+    build: ./back
+    networks:
+      - backend
+    environment:
+      - PGUSER=postgres
+      - PGHOST=db
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgrespw
+      - PGPORT=5432
+
+networks:
+  backend:
